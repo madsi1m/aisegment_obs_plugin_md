@@ -91,6 +91,8 @@ static bool chblur=true, chbg = false, chcolor = false;
 
 static bool tracking_props_modified(obs_properties_t* props, obs_property_t* property, obs_data_t* settings)
 {
+	UNUSED_PARAMETER(property);
+
 	bool disableseg = obs_data_get_bool(settings, "seg_disen");
 	//obs_property_t* blurbg = obs_properties_get(props, "blurbgbool");
 	//obs_property_t* setbg = obs_properties_get(props, "setbg");
@@ -134,6 +136,9 @@ static bool tracking_props_modified(obs_properties_t* props, obs_property_t* pro
 
 static bool tracking_blur_modified(obs_properties_t* props, obs_property_t* property, obs_data_t* settings)
 {
+	UNUSED_PARAMETER(props);
+	UNUSED_PARAMETER(property);
+
 	bool blurbg = obs_data_get_bool(settings, "blurbgbool");
 	//obs_property_t* setbg = obs_properties_get(props, "setbg");
 
@@ -163,6 +168,8 @@ static bool tracking_blur_modified(obs_properties_t* props, obs_property_t* prop
 }
 static bool tracking_setbg_modified(obs_properties_t* props, obs_property_t* property, obs_data_t* settings)
 {
+	UNUSED_PARAMETER(property);
+
 	bool setbg = obs_data_get_bool(settings, "setbg");
 	//obs_property_t* blurbg = obs_properties_get(props, "blurbgbool");
 	//obs_property_t* setcolor = obs_properties_get(props, "setcolor");
@@ -193,6 +200,8 @@ static bool tracking_setbg_modified(obs_properties_t* props, obs_property_t* pro
 
 static bool tracking_secolor_modified(obs_properties_t* props, obs_property_t* property, obs_data_t* settings)
 {
+	UNUSED_PARAMETER(props);
+
 	bool setcolor = obs_data_get_bool(settings, "setcolor");
 	//obs_property_t* blurbg = obs_properties_get(props, "blurbgbool");
 	//obs_property_t* setbg = obs_properties_get(props, "setbg");
@@ -226,6 +235,8 @@ static bool tracking_secolor_modified(obs_properties_t* props, obs_property_t* p
 
 static bool ActivateClicked(obs_properties_t* props, obs_property_t* p,void* data)
 {
+	UNUSED_PARAMETER(props);
+
 	//struct wx_seg_filter* wsf = reinterpret_cast<wx_seg_filter*>(data);
 	//gstreamer_filter_update(data, ((data_t*)data)->settings);
 	if (1) {
@@ -345,6 +356,8 @@ static void destroyScalers(struct wx_seg_filter* wsf)
 }
 static void * filter_create(obs_data_t *settings, obs_source_t *source)
 {
+	UNUSED_PARAMETER(source);
+
 	struct wx_seg_filter* wsf =reinterpret_cast<wx_seg_filter*>(bzalloc(sizeof(struct wx_seg_filter)));
 	setbginit = false;
 	int res;
