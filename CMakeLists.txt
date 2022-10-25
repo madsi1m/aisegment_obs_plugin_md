@@ -25,7 +25,7 @@ include_directories(
 # e.g. in Xcode or Visual Studio
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE 
   src/wxsegobs.cpp
-  src/plugin-main.c
+  src/plugin-main.cpp
   )
 
 # Import libobs as main plugin dependency
