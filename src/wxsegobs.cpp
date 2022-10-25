@@ -92,9 +92,9 @@ static bool chblur=true, chbg = false, chcolor = false;
 static bool tracking_props_modified(obs_properties_t* props, obs_property_t* property, obs_data_t* settings)
 {
 	bool disableseg = obs_data_get_bool(settings, "seg_disen");
-	obs_property_t* blurbg = obs_properties_get(props, "blurbgbool");
-	obs_property_t* setbg = obs_properties_get(props, "setbg");
-	obs_property_t* bgpic = obs_properties_get(props, "bgpic");
+	//obs_property_t* blurbg = obs_properties_get(props, "blurbgbool");
+	//obs_property_t* setbg = obs_properties_get(props, "setbg");
+	//obs_property_t* bgpic = obs_properties_get(props, "bgpic");
 
 	//obs_property_t* act = obs_properties_get(props, "activate");
 	//obs_property_t* act2 = obs_properties_get(props, "activate2");
@@ -226,7 +226,7 @@ static bool tracking_secolor_modified(obs_properties_t* props, obs_property_t* p
 
 static bool ActivateClicked(obs_properties_t* props, obs_property_t* p,void* data)
 {
-	struct wx_seg_filter* wsf = reinterpret_cast<wx_seg_filter*>(data);
+	//struct wx_seg_filter* wsf = reinterpret_cast<wx_seg_filter*>(data);
 	//gstreamer_filter_update(data, ((data_t*)data)->settings);
 	if (1) {
 		//SetActive(false);
@@ -281,20 +281,20 @@ static obs_properties_t *filter_properties(void *data)
 		"All Files (*.*)";
 
 
-	obs_property_t* bgpic =obs_properties_add_path(props, "bgpic", nullptr,///obs_module_text("choosebg")
-		OBS_PATH_FILE, image_filter, obs_get_module_data_path(obs_current_module()) );
+	//obs_property_t* bgpic =obs_properties_add_path(props, "bgpic", nullptr,///obs_module_text("choosebg")
+	//	OBS_PATH_FILE, image_filter, obs_get_module_data_path(obs_current_module()) );
 	//obs_property_set_modified_callback(bgpic, tracking_props_modified);
 
 	obs_property_t* setcolor = obs_properties_add_bool(props, "setcolor", obs_module_text("setcolor"));
 	obs_property_set_modified_callback(setcolor, tracking_secolor_modified);
 
-	obs_property_t* p_color = obs_properties_add_color(props, "bgColor", nullptr);//,// obs_module_text("Background Color"));
+	//obs_property_t* p_color = obs_properties_add_color(props, "bgColor", nullptr);//,// obs_module_text("Background Color"));
 
 	//obs_properties_add_text(props, "contact", obs_module_text("contact"), OBS_TEXT_DEFAULT);
 	obs_properties_add_button2(props, "", obs_module_text("contact"), ActivateClicked,data);
 
 
-	wx_seg_filter* wsf = reinterpret_cast<wx_seg_filter*>(data);
+	//wx_seg_filter* wsf = reinterpret_cast<wx_seg_filter*>(data);
 
 	UNUSED_PARAMETER(data);
 	return props;
