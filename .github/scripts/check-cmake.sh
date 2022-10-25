@@ -50,4 +50,5 @@ find . -type d \( \
 \) -prune -false -type f -o \
     -name 'CMakeLists.txt' -or \
     -name '*.cmake' \
+ | grep -v '^./3rd' \
  | xargs -L10 -P ${NPROC} cmake-format ${MODE} ${VERBOSITY}
