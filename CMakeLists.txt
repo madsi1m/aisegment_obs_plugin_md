@@ -74,8 +74,6 @@ target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/libopenjp2.lib"
 )
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /Wv:18")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wv:18")
 set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES FOLDER "plugins" PREFIX "")
 
 # --- End of section ---
@@ -89,7 +87,7 @@ if(OS_WINDOWS)
   target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.rc)
 
   if(MSVC)
-    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE /W4)
+    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE /W4 /Wv:18)
     add_definitions(/std:c++latest) #(/std:c++latest /MT)
     set_property(TARGET ${CMAKE_PROJECT_NAME} APPEND PROPERTY LINK_FLAGS "/NODEFAULTLIB:libcmt")
   endif()
