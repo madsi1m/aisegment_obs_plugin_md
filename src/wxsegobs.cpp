@@ -84,7 +84,7 @@ typedef struct wx_seg_filter
 static const char *filter_getname(void *unused)
 {
 	UNUSED_PARAMETER(unused);
-	return "AI_remove_bg";
+	return "md_AI_remove_bg";
 }
 
 static bool chblur=true, chbg = false, chcolor = false;
@@ -604,7 +604,7 @@ static void filter_destroy(void *data)
 }
 
 struct obs_source_info wx_seg_filter_info = {
-	.id = "AI_remove_bg",
+	.id = "md_AI_remove_bg",
 	.type = OBS_SOURCE_TYPE_FILTER,
 	.output_flags = OBS_SOURCE_VIDEO | OBS_SOURCE_ASYNC,
 	.get_name = filter_getname,
