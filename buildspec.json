@@ -81,6 +81,6 @@
             "qtVersion": 6
         }
     },
-    "name": "aisegment_obs_plugin_md",
+    "name": "wx_seg_obs",
     "version": "1.0.0"
 }

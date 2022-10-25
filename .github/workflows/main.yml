@@ -17,7 +17,7 @@ on:
       - main
 
 env:
-  PLUGIN_NAME: 'aisegment_obs_plugin_md'
+  PLUGIN_NAME: 'wx_seg_obs'
 
 jobs:
   clang_check:
