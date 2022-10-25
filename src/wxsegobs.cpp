@@ -91,6 +91,7 @@ static bool chblur=true, chbg = false, chcolor = false;
 
 static bool tracking_props_modified(obs_properties_t* props, obs_property_t* property, obs_data_t* settings)
 {
+	UNUSED_PARAMETER(props);
 	UNUSED_PARAMETER(property);
 
 	bool disableseg = obs_data_get_bool(settings, "seg_disen");
@@ -168,6 +169,7 @@ static bool tracking_blur_modified(obs_properties_t* props, obs_property_t* prop
 }
 static bool tracking_setbg_modified(obs_properties_t* props, obs_property_t* property, obs_data_t* settings)
 {
+	UNUSED_PARAMETER(props);
 	UNUSED_PARAMETER(property);
 
 	bool setbg = obs_data_get_bool(settings, "setbg");
@@ -201,6 +203,7 @@ static bool tracking_setbg_modified(obs_properties_t* props, obs_property_t* pro
 static bool tracking_secolor_modified(obs_properties_t* props, obs_property_t* property, obs_data_t* settings)
 {
 	UNUSED_PARAMETER(props);
+	UNUSED_PARAMETER(property);
 
 	bool setcolor = obs_data_get_bool(settings, "setcolor");
 	//obs_property_t* blurbg = obs_properties_get(props, "blurbgbool");
@@ -236,6 +239,7 @@ static bool tracking_secolor_modified(obs_properties_t* props, obs_property_t* p
 static bool ActivateClicked(obs_properties_t* props, obs_property_t* p,void* data)
 {
 	UNUSED_PARAMETER(props);
+	UNUSED_PARAMETER(data);
 
 	//struct wx_seg_filter* wsf = reinterpret_cast<wx_seg_filter*>(data);
 	//gstreamer_filter_update(data, ((data_t*)data)->settings);
