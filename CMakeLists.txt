@@ -9,8 +9,8 @@ add_library(${CMAKE_PROJECT_NAME} MODULE)
 # author of the plugin (in the plugin's metadata itself and in the installers)
 set(PLUGIN_AUTHOR "madsi1m")
 
-# Replace `com.example.obs-plugin-template` with a unique Bundle ID for macOS releases (used both in
-# the installer and when submitting the installer for notarization)
+# Replace `com.example.obs-plugin-template` with a unique Bundle ID for macOS releases (used both
+# in the installer and when submitting the installer for notarization)
 set(MACOS_BUNDLEID "com.example.${CMAKE_PROJECT_NAME}")
 
 # Replace `me@contoso.com` with the maintainer email address you want to put in Linux packages
