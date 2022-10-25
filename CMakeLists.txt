@@ -74,6 +74,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/libopenjp2.lib"
 )
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /Wv:18")
 set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES FOLDER "plugins" PREFIX "")
 
 # --- End of section ---
