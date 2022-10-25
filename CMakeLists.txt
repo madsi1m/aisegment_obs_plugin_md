@@ -16,9 +16,17 @@ set(MACOS_BUNDLEID "com.example.${CMAKE_PROJECT_NAME}")
 # Replace `me@contoso.com` with the maintainer email address you want to put in Linux packages
 set(LINUX_MAINTAINER_EMAIL "madsi1m@github.com")
 
+include_directories(
+  "${CMAKE_CURRENT_SOURCE_DIR}/3rd/lh320_windows_1.2.2/include"
+  "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/include"
+)
+
 # Add your custom source files here - header files are optional and only required for visibility
 # e.g. in Xcode or Visual Studio
-target_sources(${CMAKE_PROJECT_NAME} PRIVATE src/plugin-main.c)
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE 
+  src/wxsegobs.cpp
+  src/plugin-main.c
+  )
 
 # Import libobs as main plugin dependency
 find_package(libobs REQUIRED)
@@ -52,6 +60,19 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE src/plugin-macros.generated.h)
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src)
 
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE OBS::libobs)
+
+#if(CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
+target_link_libraries(wx_seg_obs PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}/3rd/lh320_windows_1.2.2/lib/x64/wx_video_seg.lib"
+    "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/opencv_world454.lib"
+    "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/zlib.lib"
+    "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/libpng.lib"
+    "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/libtiff.lib"
+    "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/IlmImf.lib"
+    "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/libjpeg-turbo.lib"
+    "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/libwebp.lib"
+    "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/libopenjp2.lib"
+)
 
 # --- End of section ---
 
