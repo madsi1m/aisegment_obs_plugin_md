@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16...3.21)
 
 # Change obs-plugintemplate to your plugin's name in a machine-readable format (e.g.:
 # obs-myawesomeplugin) and set
-project(md_wx_seg_obs VERSION 1.0.0)
+project(wx_seg_obs VERSION 1.0.1)
 add_library(${CMAKE_PROJECT_NAME} MODULE)
 
 # Replace `Your Name Here` with the name (yours or your organization's) you want to see as the
@@ -62,7 +62,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE OBS::libobs)
 
 #if(CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
-target_link_libraries(wx_seg_obs PRIVATE
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/3rd/lh320_windows_1.2.2/lib/x64/wx_video_seg.lib"
     "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/opencv_world454.lib"
     "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/zlib.lib"
@@ -73,6 +73,8 @@ target_link_libraries(wx_seg_obs PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/libwebp.lib"
     "${CMAKE_CURRENT_SOURCE_DIR}/3rd/opencv/x64/vc16/staticlib/libopenjp2.lib"
 )
+
+set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES FOLDER "plugins" PREFIX "")
 
 # --- End of section ---
 
@@ -86,6 +88,8 @@ if(OS_WINDOWS)
 
   if(MSVC)
     target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE /W4)
+    add_definitions(/std:c++latest) #(/std:c++latest /MT)
+    set_property(TARGET ${CMAKE_PROJECT_NAME} APPEND PROPERTY LINK_FLAGS "/NODEFAULTLIB:libcmt")
   endif()
   # --- End of section ---
 
