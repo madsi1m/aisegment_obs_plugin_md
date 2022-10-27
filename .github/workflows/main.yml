@@ -70,7 +70,9 @@ jobs:
           submodules: recursive
           lfs: true
       - name: Checkout LFS objects
-        run: git lfs checkout
+        run: |
+            cd plugin
+            git lfs checkout
 
       - name: Checkout obs-studio
         uses: actions/checkout@v3
@@ -199,7 +201,9 @@ jobs:
           submodules: recursive
           lfs: true
       - name: Checkout LFS objects
-        run: git lfs checkout
+        run: |
+            cd plugin
+            git lfs checkout
 
       - name: Checkout obs-studio
         uses: actions/checkout@v3
@@ -280,7 +284,9 @@ jobs:
           submodules: recursive
           lfs: true
       - name: Checkout LFS objects
-        run: git lfs checkout
+        run: |
+            cd plugin
+            git lfs checkout
 
       - name: Checkout obs-studio
         uses: actions/checkout@v3
